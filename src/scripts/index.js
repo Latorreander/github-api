@@ -30,6 +30,7 @@ async function getUserData(userName) {
     const repositoriesResponse = await getRepositories(userName);
 
     user.setInfo(userResponse);
+    console.log(userResponse)
     user.setRepositories(repositoriesResponse);
     screen.renderUser(user);
 }

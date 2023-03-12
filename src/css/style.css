@@ -183,3 +183,10 @@ main {
 .container .profile-data.hide{
   display: none;
 }
+
+/* FOLLOWERS */
+
+.followers-data{
+   padding-top: 30px;
+
+}
