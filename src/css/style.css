@@ -184,9 +184,17 @@ main {
   display: none;
 }
 
+.container .events-data.hide {
+  display: none;
+}
+
+
 /* FOLLOWERS */
 
 .followers-data{
    padding-top: 30px;
 
 }
+
+/* EVENTS */
+

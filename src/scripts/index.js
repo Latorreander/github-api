@@ -1,5 +1,6 @@
 import { getUser } from "./services/user.js";
 import { getRepositories } from "./services/repositories.js";
+import { events } from './services/events.js'
 
 import { user } from "./objects/user.js";
 import { screen } from "./objects/screen.js";
@@ -22,17 +23,20 @@ document.getElementById("input-search").addEventListener("keyup", (event) => {
 
 async function getUserData(userName) {
     const userResponse = await getUser(userName);
+    
 
     if (userResponse.message === "Not Found") {
         screen.renderNotFound();
         return;
     }
     const repositoriesResponse = await getRepositories(userName);
-
+    const eventsResponse = await events(userName);
+  
     user.setInfo(userResponse);
-    console.log(userResponse)
     user.setRepositories(repositoriesResponse);
     screen.renderUser(user);
+    screen.renderEvents(eventsResponse)
+
 }
 
 function validateInput(userName) {
