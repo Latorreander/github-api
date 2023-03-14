@@ -21,11 +21,19 @@
     {
       width: 100%;
     }
+
+    .events-data {
+      font-size: 12px;
+    }
   }
   
   @media (max-width: 425px) {
     main {
       padding: 15% 0;    
+    }
+
+    .container .profile-data {
+      padding-bottom: 0;
     }
   
     .container .profile-data .info img{
@@ -38,4 +46,14 @@
       width: 100%;
       padding: 0;
     }
+
+    .events-data {
+      font-size: 10px;
+      padding: 0 30px;
+    }
+
+    .events-data i {
+      font-size: 8px;
+    }
+ 
   }

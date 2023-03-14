@@ -212,9 +212,10 @@ main {
 /* EVENTS */
 
 .events-data {
-  width: 620px;
+  min-width: 330px;
   margin-bottom: 60px;
   line-height: 30px;
+  padding: 20px;
 
 }
 .events-data h2 {
