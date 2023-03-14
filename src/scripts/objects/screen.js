@@ -2,8 +2,6 @@
 const screen = {
     userProfile: document.querySelector(".profile-data"),
     renderUser(user){
-    
-        
         this.userProfile.innerHTML = `<div class="info">
                             <img src="${user.avatarUrl}"alt="user profile picture"/>
                             <div class="data">
@@ -16,16 +14,23 @@ const screen = {
                             </div>
                         </div>`
 
-
         let repositoriesItens = "";
-        user.repositories.forEach(repo => repositoriesItens += `<li><a href="${repo.html_url}" target="_blank">${repo.name}</a></li>`);
-    
+        user.repositories.forEach(repo => 
+            repositoriesItens += 
+            `<li><a href="${repo.html_url}" target="_blank">${repo.name} 
+                                    <div class="repo-info">
+                                        <div class="info" title="Forks">🍴${repo.forks_count}</div>
+                                        <div class="info" title="Stars">⭐${repo.stargazers_count}</div>
+                                        <div class="info" title="Watchers">👀${repo.watchers_count}</div>
+                                        <div class="info" title="Language">👨‍💻${repo.language}</div>
+                                    </div>
+                </a></li><li>`);
+        
         if(user.repositories.length > 0){
         this.userProfile.innerHTML += 
                 `<div class="repositories section">
                     <h2>Repositórios</h2>
                     <ul>${repositoriesItens}</ul>
-                    <h2>Eventos</h2> 
                 </div>`
         }
                
@@ -33,17 +38,16 @@ const screen = {
     
     userEvents: document.querySelector(".events-data"),
     renderEvents(eventsResponse){
-        console.log(eventsResponse)
-      
-        eventsResponse.forEach(e => {
 
-            if(e.type ==='PushEvent' || 'CreateEvent'){
-                console.log(e.type)
-                this.userEvents.innerHTML +=`<ul>
-                <li>${e.repo.name}  -  ${e.payload.commits[0].message}</li>
-                </ul>`
+        let eventsItens = "";
+        eventsResponse.forEach(e => {
+            
+            if(e.type ==='PushEvent' && 'CreateEvent'){
+
+                eventsItens +=`<li><strong>${e.repo.name }</strong> ➡️ <i>${e.payload.commits[0].message}</li></i>`
             }
-      
+                this.userEvents.innerHTML = `<h2>Eventos</h2>
+                                                <ul>${eventsItens}</ul>`
         })
         
     },

@@ -3,7 +3,6 @@
 * {
   margin: 0;
   padding: 0;
-  font-weight: 300;
 }
 
 img {
@@ -175,6 +174,20 @@ main {
   transition: 0.3s ease-in-out;
 }
 
+.container .profile-data .repositories .repo-info{
+  display: flex;
+  margin-top: 10px;
+}
+
+.container .profile-data .repositories .info{
+  background-color: #483D8B;
+  color: #ffffff;
+  border-radius: 5px;
+  margin: 2px;
+  padding: 4px;
+}
+
+
 .container .profile-data .repositories ul li a:hover{
   background-color:hotpink;
   color: #fff
@@ -200,7 +213,12 @@ main {
 
 .events-data {
   width: 620px;
+  margin-bottom: 60px;
+  line-height: 30px;
 
+}
+.events-data h2 {
+  margin-bottom: 30px;
 }
 
 
