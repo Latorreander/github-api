@@ -24,7 +24,8 @@ const screen = {
         this.userProfile.innerHTML += 
                 `<div class="repositories section">
                     <h2>Repositórios</h2>
-                    <ul>${repositoriesItens}</ul> 
+                    <ul>${repositoriesItens}</ul>
+                    <h2>Eventos</h2> 
                 </div>`
         }
                
@@ -38,7 +39,9 @@ const screen = {
 
             if(e.type ==='PushEvent' || 'CreateEvent'){
                 console.log(e.type)
-                this.userEvents.innerHTML +=`<p>${e.repo.name}</p> - <span>${e.payload.commits[0].message}</span>`
+                this.userEvents.innerHTML +=`<ul>
+                <li>${e.repo.name}  -  ${e.payload.commits[0].message}</li>
+                </ul>`
             }
       
         })
