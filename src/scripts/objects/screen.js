@@ -22,7 +22,7 @@ const screen = {
                                         <div class="info" title="Forks">🍴${repo.forks_count}</div>
                                         <div class="info" title="Stars">⭐${repo.stargazers_count}</div>
                                         <div class="info" title="Watchers">👀${repo.watchers_count}</div>
-                                        <div class="info" title="Language">👨‍💻${repo.language}</div>
+                                        <div class="info" title="Language">👨‍💻${repo.language ?? 'Sem linguagem 😥'}</div>
                                     </div></a>
                                 </li>`);
         
