@@ -2,29 +2,31 @@
 const screen = {
     userProfile: document.querySelector(".profile-data"),
     renderUser(user){
-        this.userProfile.innerHTML = `<div class="info">
-                            <img src="${user.avatarUrl}"alt="user profile picture"/>
-                            <div class="data">
-                                 <h1>${user.name ?? 'Não Possui nome cadastrado 😥'}<h1>
-                                 <p>${user.bio ?? 'Não Possui bio Cadastrada 😥'}</p>
-                                 <div class="followers-data">
-                                 <p>Seguidores: ${user.followers}</p>
-                                 <p>Seguindo: ${user.following}</p>
-                                 </div>
-                            </div>
-                        </div>`
+        this.userProfile.innerHTML = 
+        `<div class="info">
+            <img src="${user.avatarUrl}"alt="user profile picture"/>
+            <div class="data">
+                <h1>${user.name ?? 'Não Possui nome cadastrado 😥'}<h1>
+                <p>${user.bio ?? 'Não Possui bio Cadastrada 😥'}</p>
+                    <div class="followers-data">
+                        <p>Seguidores: ${user.followers}</p>
+                        <p>Seguindo: ${user.following}</p>
+                    </div>
+            </div>
+        </div>`
 
         let repositoriesItens = "";
         user.repositories.forEach(repo => 
-            repositoriesItens +=`<li>
-            <a href="${repo.html_url}"target="_blank">${repo.name} 
-                                    <div class="repo-info">
-                                        <div class="info" title="Forks">🍴${repo.forks_count}</div>
-                                        <div class="info" title="Stars">⭐${repo.stargazers_count}</div>
-                                        <div class="info" title="Watchers">👀${repo.watchers_count}</div>
-                                        <div class="info" title="Language">👨‍💻${repo.language ?? 'Sem linguagem 😥'}</div>
-                                    </div></a>
-                                </li>`);
+            repositoriesItens +=
+            `<li>
+                <a href="${repo.html_url}"target="_blank">${repo.name} 
+                <div class="repo-info">
+                    <div class="info" title="Forks">🍴${repo.forks_count}</div>
+                    <div class="info" title="Stars">⭐${repo.stargazers_count}</div>
+                    <div class="info" title="Watchers">👀${repo.watchers_count}</div>
+                    <div class="info" title="Language">👨‍💻${repo.language ?? 'Sem linguagem 😥'}</div>
+                </div></a>
+            </li>`);
         
         if(user.repositories.length > 0){
         this.userProfile.innerHTML += 
@@ -32,8 +34,7 @@ const screen = {
                     <h2>Repositórios</h2>
                     <ul>${repositoriesItens}</ul>
                 </div>`
-        }
-               
+        }         
     },
     
     userEvents: document.querySelector(".events-data"),
